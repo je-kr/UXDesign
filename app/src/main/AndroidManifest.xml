@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UX_Design">
-        <activity android:name=".MenuMedecin"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".UI.MenuMedecin"></activity>
+        <activity android:name=".UI.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
