@@ -38,11 +38,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         dropdown.setOnItemSelectedListener(this);
 
     }
-}
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        String email = fieldemail.getText().toString()
+        String motpasse = fieldmotpasse.getText().toString()
+        buttonseconnecter.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            }
+        });
     }
 
     @Override
