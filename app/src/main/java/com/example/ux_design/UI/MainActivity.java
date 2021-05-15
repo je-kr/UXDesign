@@ -2,6 +2,7 @@ package com.example.ux_design.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -41,10 +42,22 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String email = fieldemail.getText().toString()
-        String motpasse = fieldmotpasse.getText().toString()
+        String email = fieldemail.getText().toString();
+        String motpasse = fieldmotpasse.getText().toString();
         buttonseconnecter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                switch (position) {
+                    case 0:
+                        Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
+                        startActivity(intent);
+                        break;
+                    case 1:
+                        // Whatever you want to happen when the second item gets selected
+                        break;
+                    case 2:
+                        // Whatever you want to happen when the thrid item gets selected
+                        break;
+                }
             }
         });
     }
