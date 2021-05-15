@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.ux_design.Models.DAO.MedecinDAO;
 import com.example.ux_design.R;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
                 switch (position) {
                     case 0:
+                        if MedecinDAO
                         Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
                         startActivity(intent);
                         break;

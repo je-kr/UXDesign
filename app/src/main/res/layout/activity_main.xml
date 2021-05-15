@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -22,7 +22,7 @@
         android:id="@+id/seconnecter"
         android:layout_width="140dp"
         android:layout_height="52dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="516dp"
         android:layout_marginEnd="136dp"
         android:layout_marginRight="136dp"
         android:background="#FFFFFF"
@@ -35,7 +35,7 @@
         android:id="@+id/motpasse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="248dp"
+        android:layout_marginTop="288dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
@@ -48,7 +48,7 @@
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="172dp"
+        android:layout_marginTop="164dp"
         android:layout_marginEnd="100dp"
         android:layout_marginRight="100dp"
         android:ems="10"
@@ -61,9 +61,9 @@
         android:id="@+id/motpasseoublie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="328dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginRight="156dp"
+        android:layout_marginTop="388dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginRight="128dp"
         android:autoText="false"
         android:text="Mot de passe oublié"
         android:textColor="#F4F7FA"
@@ -93,11 +93,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="152dp"
-        android:layout_marginEnd="276dp"
-        android:layout_marginRight="276dp"
+        android:layout_marginTop="144dp"
         android:text="Qui êtes vous ?"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.097"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

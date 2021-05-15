@@ -2,7 +2,9 @@ package com.example.ux_design.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import com.example.ux_design.R;
@@ -22,10 +24,12 @@ public class MenuMedecin extends AppCompatActivity {
         buttonConsulterDossier = findViewById(R.id.buttonConsulterDossier);
         buttonConsulterDossier = findViewById(R.id.buttonConsulterDossier);
 
-
-
-
-
+        buttonRetour.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuMedecin.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }
