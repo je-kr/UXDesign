@@ -1,5 +1,6 @@
 package com.example.ux_design.UI;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
@@ -13,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.ux_design.Models.AppDatabase;
 import com.example.ux_design.Models.DAO.MedecinDAO;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     Button buttonseconnecter, buttonoublie;
     EditText fieldemail,fieldmotpasse;
     Spinner dropdown;
+    TextView motincorrect;
     PatientDAO mPatientDAO;
     MedecinDAO mMedecinDAO;
 
@@ -34,11 +37,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     AppDatabase db;
 
 
-    private void createDb() { // Fonction permettant de créer la BDD à partir du fichier SQLITE3 database.db et de la stocker dans la variable db
-        Context context = getApplicationContext();
-        db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "AppDatabase").fallbackToDestructiveMigration().createFromAsset("database.db").build();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         fieldemail = findViewById(R.id.email);
         fieldmotpasse = findViewById(R.id.motpasse);
         buttonoublie = findViewById(R.id.motpasseoublie);
+        motincorrect = findViewById(R.id.textView6);
+
 
         dropdown = (Spinner)findViewById(R.id.droplist);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
@@ -59,6 +59,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(adapter);
         dropdown.setOnItemSelectedListener(this);
+
+
+        db = AppDatabase.getDatabase(getApplicationContext());
+
         mMedecinDAO = db.medecinDao();
         mPatientDAO = db.patientDao();
 
@@ -66,11 +70,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String email = fieldemail.getText().toString();
-        String motpasse = fieldmotpasse.getText().toString();
-
         buttonseconnecter.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                String email = fieldemail.getText().toString();
+                String motpasse = fieldmotpasse.getText().toString();
+                Log.d("Email : ", email);
                 switch (position) {
                     case 0:
                         mMedecinDAO.findByEmail(email)
@@ -78,25 +82,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                             .observeOn(AndroidSchedulers.mainThread())
                             .subscribe(
                                     medecinFound -> {
-                                        if (email.equals(motpasse))
-                                        Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
-                                        startActivity(intent);
-                                        //Cette partie est effectuée dès que la Query a retourné un résultat (ici le résultat est représenté par la variable 'medecinFound' )
-                                        // Il faut donc bien faire attention a effectuer les actions nécéssitant le résultat de la query dans cette partie
-
-                                        // On peut donc récupérer les infos du médecin trouvé avec les getters de la classe :
-
-                                        //Chaque attribut des tables patient/médecin a un getter associé (nom, telephone, email etc...) (voir les fichiers dans 'Models')
-
+                                        if (medecinFound.getMotpasse().equals(motpasse)){
+                                            Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
+                                            startActivity(intent);}
+                                        else {
+                                            motincorrect.setText("Mot de passe incorrect");
+                                            motincorrect.setVisibility(View.VISIBLE);
+                                        }
                                     },
 
                                     throwable -> {
                                         // Cette partie est executée quand la query a échoué
                                         Log.d("SubscribeSingle", "Query error");
                                     });
-                          // Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
-                         //   startActivity(intent);
-                        //
                         break;
                     case 1:
                         // Whatever you want to happen when the second item gets selected
