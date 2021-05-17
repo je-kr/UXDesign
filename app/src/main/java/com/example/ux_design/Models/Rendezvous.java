@@ -17,7 +17,6 @@ import androidx.room.PrimaryKey;
                     }
         )
 
-
 public class Rendezvous {
 
     @PrimaryKey
@@ -29,6 +28,5 @@ public class Rendezvous {
 
     @ColumnInfo(name = "emailMedecin")
     public String emailMedecin;
-
 
 }
