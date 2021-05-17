@@ -9,27 +9,26 @@ import android.os.Bundle;
 import com.example.ux_design.Models.CustomAdapter;
 import com.example.ux_design.R;
 
-public class AgendaPatient extends AppCompatActivity {
-
+public class AgendaMedecin extends AppCompatActivity {
 
     protected RecyclerView mRecyclerView;
     protected CustomAdapter mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
 
-    private static final int DATASET_COUNT = 60;
+
 
     private void initDataset() {
-        mDataset = new String[DATASET_COUNT];
-        for (int i = 0; i < DATASET_COUNT; i++) {
-            mDataset[i] = "This is element #" + i;
+        mDataset = new String[11];
+        for (int i = 8; i < 19; i++) {
+            mDataset[i-8] =  String.format("%02d:%02d",i,0);
         }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_agenda_patient);
+        setContentView(R.layout.activity_agenda_medecin);
 
         initDataset();
 
@@ -42,12 +41,6 @@ public class AgendaPatient extends AppCompatActivity {
         mAdapter = new CustomAdapter(mDataset);
 
         mRecyclerView.setAdapter(mAdapter);
-
-
-
-
-
-
 
     }
 }

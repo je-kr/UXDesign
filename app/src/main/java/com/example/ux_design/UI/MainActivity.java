@@ -1,10 +1,5 @@
 package com.example.ux_design.UI;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
-
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,10 +11,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.ux_design.Models.AppDatabase;
 import com.example.ux_design.Models.DAO.MedecinDAO;
 import com.example.ux_design.Models.DAO.PatientDAO;
-import com.example.ux_design.Models.Medecin;
 import com.example.ux_design.R;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -27,7 +23,7 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     Button buttonseconnecter, buttonoublie;
-    EditText fieldemail,fieldmotpasse;
+    EditText fieldemail, fieldmotpasse;
     Spinner dropdown;
     TextView motincorrect;
     PatientDAO mPatientDAO;
@@ -35,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     // On instancie une variable db représentant notre BDD
     AppDatabase db;
-
 
 
     @Override
@@ -52,9 +47,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         motincorrect = findViewById(R.id.textView6);
 
 
-        dropdown = (Spinner)findViewById(R.id.droplist);
+        dropdown = (Spinner) findViewById(R.id.droplist);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
-                android.R.layout.simple_spinner_item,items);
+                android.R.layout.simple_spinner_item, items);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         dropdown.setAdapter(adapter);
@@ -78,23 +73,23 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 switch (position) {
                     case 0:
                         mMedecinDAO.findByEmail(email)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(
-                                    medecinFound -> {
-                                        if (medecinFound.getMotpasse().equals(motpasse)){
-                                            Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
-                                            startActivity(intent);}
-                                        else {
-                                            motincorrect.setText("Mot de passe incorrect");
-                                            motincorrect.setVisibility(View.VISIBLE);
-                                        }
-                                    },
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(
+                                        medecinFound -> {
+                                            if (medecinFound.getMotpasse().equals(motpasse)) {
+                                                Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
+                                                startActivity(intent);
+                                            } else {
+                                                motincorrect.setText("Mot de passe incorrect");
+                                                motincorrect.setVisibility(View.VISIBLE);
+                                            }
+                                        },
 
-                                    throwable -> {
-                                        // Cette partie est executée quand la query a échoué
-                                        Log.d("SubscribeSingle", "Query error");
-                                    });
+                                        throwable -> {
+                                            // Cette partie est executée quand la query a échoué
+                                            Log.d("SubscribeSingle", "Query error");
+                                        });
                         break;
                     case 1:
                         // Whatever you want to happen when the second item gets selected

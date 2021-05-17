@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UX_Design</string>
+    <string name="title_activity_agenda_medecin">AgendaMedecin</string>
 </resources>

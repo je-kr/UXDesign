@@ -23,6 +23,7 @@ public class MenuMedecin extends AppCompatActivity {
         buttonSaisieDossier = findViewById(R.id.buttonSaisieDossier);
         buttonConsulterDossier = findViewById(R.id.buttonConsulterDossier);
         buttonConsulterDossier = findViewById(R.id.buttonConsulterDossier);
+        buttonAgenda = findViewById(R.id.buttonAgenda);
 
         buttonRetour.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -30,6 +31,15 @@ public class MenuMedecin extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonAgenda.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuMedecin.this, AgendaMedecin.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 }
