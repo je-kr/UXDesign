@@ -32,22 +32,22 @@ public abstract class AppDatabase extends RoomDatabase {
             Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
 
-//    static AppDatabase getDatabase(@NonNull final Context context) {
-//        if (INSTANCE == null) {
-//            synchronized (AppDatabase.class) {
-//                if (INSTANCE == null) {
-//                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-//                            AppDatabase.class, "AppDatabase")
-//                            // Wipes and rebuilds instead of migrating
-//                            // if no Migration object.
-//                            // Migration is not part of this practical.
-//                            .fallbackToDestructiveMigration()
-//                            .createFromAsset("database.db")
-//                            .build();
-//                }
-//            }
-//        }
-//        return INSTANCE;
-//    }
+    public static AppDatabase getDatabase(@NonNull final Context context) {
+        if (INSTANCE == null) {
+            synchronized (AppDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            AppDatabase.class, "AppDatabase")
+                            // Wipes and rebuilds instead of migrating
+                            // if no Migration object.
+                            // Migration is not part of this practical.
+                            .fallbackToDestructiveMigration()
+                            .createFromAsset("database.db")
+                            .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
 
 }

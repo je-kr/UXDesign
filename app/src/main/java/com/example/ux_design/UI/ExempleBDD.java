@@ -27,15 +27,8 @@ public class ExempleBDD extends AppCompatActivity {
     PatientDAO mPatientDAO;
     MedecinDAO mMedecinDAO;
 
-    // On instancie une variable db représentant notre BDD
     AppDatabase db;
 
-
-    private void createDb() { // Fonction permettant de créer la BDD à partir du fichier SQLITE3 database.db et de la stocker dans la variable db
-        Context context = getApplicationContext();
-        db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "AppDatabase").fallbackToDestructiveMigration().createFromAsset("database.db").build();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +37,7 @@ public class ExempleBDD extends AppCompatActivity {
 
         textView = findViewById(R.id.textView5);
 
-        createDb();
-
+        db = AppDatabase.getDatabase(getApplicationContext());
         // On récupère les DAO de notre BDD :
 
         mMedecinDAO = db.medecinDao();

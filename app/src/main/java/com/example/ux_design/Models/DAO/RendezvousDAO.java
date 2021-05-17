@@ -20,9 +20,6 @@ public interface RendezvousDAO {
     @Query("SELECT * FROM Rendezvous WHERE daterdv LIKE :date")
     Single<List<Rendezvous>> findByDate(String date);
 
-//    @Query("SELECT * FROM Pays")
-//    LiveData<List<String>> getStringList();
-
     @Insert
     void insertAll(Rendezvous... pays);
 
