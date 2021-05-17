@@ -23,7 +23,7 @@ public class MenuPatient extends AppCompatActivity {
 
         Intent intent = new Intent(this, AgendaPatient.class);
 
-
+        agendaButton = findViewById(R.id.buttonAgendaPatient);
 
         agendaButton.setOnClickListener(new View.OnClickListener() {
 

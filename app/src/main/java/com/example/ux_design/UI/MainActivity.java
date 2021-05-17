@@ -78,26 +78,45 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 switch (position) {
                     case 0:
                         mMedecinDAO.findByEmail(email)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(
-                                    medecinFound -> {
-                                        if (medecinFound.getMotpasse().equals(motpasse)){
-                                            Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
-                                            startActivity(intent);}
-                                        else {
-                                            motincorrect.setText("Mot de passe incorrect");
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(
+                                        medecinFound -> {
+                                            if (medecinFound.getMotpasse().equals(motpasse)){
+                                                Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
+                                                startActivity(intent);}
+                                            else {
+                                                motincorrect.setText("Identifiants incorrects");
+                                                motincorrect.setVisibility(View.VISIBLE);
+                                            }
+                                        },
+                                        throwable -> {
+                                            // Cette partie est executée quand la query a échoué
+                                            Log.d("SubscribeSingle", "Query error");
+                                            motincorrect.setText("Identifiants incorrects");
                                             motincorrect.setVisibility(View.VISIBLE);
-                                        }
-                                    },
-
-                                    throwable -> {
-                                        // Cette partie est executée quand la query a échoué
-                                        Log.d("SubscribeSingle", "Query error");
-                                    });
+                                        });
                         break;
                     case 1:
-                        // Whatever you want to happen when the second item gets selected
+                        mPatientDAO.findByEmail(email)
+                                .subscribeOn(Schedulers.io())
+                                .observeOn(AndroidSchedulers.mainThread())
+                                .subscribe(
+                                        patientFound -> {
+                                            if (patientFound.getMotpasse().equals(motpasse)){
+                                                Intent intent = new Intent(MainActivity.this, MenuPatient.class);
+                                                startActivity(intent);}
+                                            else {
+                                                motincorrect.setText("Identifiants incorrects");
+                                                motincorrect.setVisibility(View.VISIBLE);
+                                            }
+                                        },
+                                        throwable -> {
+                                            // Cette partie est executée quand la query a échoué
+                                            Log.d("SubscribeSingle", "Query error");
+                                            motincorrect.setText("Identifiants incorrects");
+                                            motincorrect.setVisibility(View.VISIBLE);
+                                        });
                         break;
                     case 2:
                         // Whatever you want to happen when the thrid item gets selected
