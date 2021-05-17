@@ -7,7 +7,7 @@
     tools:context=".UI.MenuPatient">
 
     <Button
-        android:id="@+id/buttonConsulterDossier2"
+        android:id="@+id/buttonConsulterDossierPatient"
         android:layout_width="133dp"
         android:layout_height="131dp"
         android:layout_marginTop="188dp"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.37" />
 
     <Button
-        android:id="@+id/buttonAgenda2"
+        android:id="@+id/buttonAgendaPatient"
         android:layout_width="133dp"
         android:layout_height="131dp"
         android:layout_marginTop="240dp"
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonConsulterDossier2"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConsulterDossierPatient"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
