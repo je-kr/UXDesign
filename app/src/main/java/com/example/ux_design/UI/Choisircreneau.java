@@ -54,6 +54,7 @@ public class Choisircreneau extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Choisircreneau.this, Confirmation.class);
+                intent.putExtra("date",selectedDate);
                 startActivity(intent);
             }
         });
