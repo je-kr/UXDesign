@@ -33,11 +33,11 @@
 
     <EditText
         android:id="@+id/motpasse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="288dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
+        android:layout_width="275dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="292dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
         android:ems="10"
         android:hint="Mot de passe*"
         android:inputType="textPassword"
@@ -46,11 +46,11 @@
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="164dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
+        android:layout_width="259dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginRight="68dp"
         android:ems="10"
         android:hint="Email*"
         android:inputType="textEmailAddress"
