@@ -1,31 +1,60 @@
 package com.example.ux_design.UI;
 
-import android.os.Bundle;
-
-import com.example.ux_design.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.TextView;
+
+import com.example.ux_design.Confirmation;
+import com.example.ux_design.R;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Choisircreneau extends AppCompatActivity {
+     Button buttonRetour, prendrerdv;
+     CalendarView calendar;
+     TextView date;
+     String selectedDate;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choisircreneau);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        buttonRetour = findViewById(R.id.buttonRetour4);
+        calendar = (CalendarView) findViewById(R.id.calendarView);
+        date = findViewById(R.id.textView11);
+        prendrerdv = findViewById(R.id.buttonRetour5);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+
+                date.setText(selectedDate);
+                date.setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        buttonRetour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Choisircreneau.this, MenuPatient.class);
+                startActivity(intent);
+            }
+        });
+        prendrerdv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Choisircreneau.this, Confirmation.class);
+                startActivity(intent);
             }
         });
     }
