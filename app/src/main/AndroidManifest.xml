@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UX_Design">
         <activity
-            android:name=".Choisircreneau"
+            android:name=".UI.Choisircreneau"
             android:label="@string/title_activity_choisircreneau"
             android:theme="@style/Theme.UX_Design.NoActionBar"></activity>
         <activity android:name=".UI.AgendaMedecin" />

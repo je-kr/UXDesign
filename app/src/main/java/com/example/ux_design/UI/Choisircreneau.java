@@ -1,7 +1,8 @@
-package com.example.ux_design;
+package com.example.ux_design.UI;
 
 import android.os.Bundle;
 
+import com.example.ux_design.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
