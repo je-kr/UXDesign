@@ -18,12 +18,13 @@ public class AdapterChoisirCreneau extends RecyclerView.Adapter<AdapterMedecinAg
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         private final TextView textView;
 
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView);
+            textView = (TextView) view.findViewById(R.id.textView13);
         }
 
         public TextView getTextView() {

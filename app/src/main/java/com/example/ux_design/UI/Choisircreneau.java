@@ -1,6 +1,8 @@
 package com.example.ux_design.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.widget.CalendarView;
 import android.widget.TextView;
 
 import com.example.ux_design.Confirmation;
+import com.example.ux_design.Models.AdapterChoisirCreneau;
+import com.example.ux_design.Models.AdapterMedecinAgenda;
 import com.example.ux_design.R;
 
 import java.text.SimpleDateFormat;
@@ -21,6 +25,18 @@ public class Choisircreneau extends AppCompatActivity {
      TextView date;
      String selectedDate;
 
+    protected RecyclerView mRecyclerView;
+    protected AdapterChoisirCreneau mAdapter;
+    protected RecyclerView.LayoutManager mLayoutManager;
+    protected String[] mDataset;
+
+    private void initDataset() {
+        mDataset = new String[11];
+        for (int i = 8; i < 19; i++) {
+            mDataset[i-8] =  String.format("Test",i,0);
+        }
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +46,19 @@ public class Choisircreneau extends AppCompatActivity {
         calendar = (CalendarView) findViewById(R.id.calendarView);
         date = findViewById(R.id.textView11);
         prendrerdv = findViewById(R.id.buttonRetour5);
+
+        initDataset();
+
+        mRecyclerView = findViewById(R.id.recyclerChoisirCreneau);
+
+        mLayoutManager = new LinearLayoutManager(getApplication());
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new AdapterChoisirCreneau(mDataset);
+
+        mRecyclerView.setAdapter(mAdapter);
+
 
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {

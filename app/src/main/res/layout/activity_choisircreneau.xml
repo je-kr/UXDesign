@@ -78,4 +78,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerChoisirCreneau"
+        android:layout_width="312dp"
+        android:layout_height="253dp"
+        tools:layout_editor_absoluteX="25dp"
+        tools:layout_editor_absoluteY="451dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
