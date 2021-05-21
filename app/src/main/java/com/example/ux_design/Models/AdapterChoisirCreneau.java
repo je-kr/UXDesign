@@ -3,13 +3,14 @@ package com.example.ux_design.Models;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ux_design.R;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class AdapterChoisirCreneau extends RecyclerView.Adapter<AdapterMedecinAgenda.ViewHolder> {
 
     private String[] localDataSet;
 
@@ -22,14 +23,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         public ViewHolder(View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
-
             textView = (TextView) view.findViewById(R.id.textView);
         }
 
         public TextView getTextView() {
             return textView;
         }
+
     }
 
     /**
@@ -38,32 +38,31 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public CustomAdapter(String[] dataSet) {
+    public AdapterChoisirCreneau(String[] dataSet) {
         localDataSet = dataSet;
     }
 
     // Create new views (invoked by the layout manager)
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public AdapterMedecinAgenda.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item, viewGroup, false);
+                .inflate(R.layout.choisir_creneau_recycler, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new AdapterMedecinAgenda.ViewHolder(view);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(AdapterMedecinAgenda.ViewHolder viewHolder, final int position) {
 
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
-        viewHolder.getTextView().setText(localDataSet[position]);
+
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
+
     @Override
     public int getItemCount() {
         return localDataSet.length;
     }
+    // Return the size of your dataset (invoked by the layout manager)
 }

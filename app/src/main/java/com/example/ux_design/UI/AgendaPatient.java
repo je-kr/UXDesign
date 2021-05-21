@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.ux_design.Models.CustomAdapter;
+import com.example.ux_design.Models.AdapterMedecinAgenda;
 import com.example.ux_design.R;
 
 public class AgendaPatient extends AppCompatActivity {
 
 
     protected RecyclerView mRecyclerView;
-    protected CustomAdapter mAdapter;
+    protected AdapterMedecinAgenda mAdapter;
     protected RecyclerView.LayoutManager mLayoutManager;
     protected String[] mDataset;
 
@@ -39,7 +39,7 @@ public class AgendaPatient extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new CustomAdapter(mDataset);
+        mAdapter = new AdapterMedecinAgenda(mDataset);
 
         mRecyclerView.setAdapter(mAdapter);
 
