@@ -22,7 +22,6 @@ import java.util.Date;
 public class Choisircreneau extends AppCompatActivity {
      Button buttonRetour, prendrerdv;
      CalendarView calendar;
-     TextView date;
      String selectedDate;
 
     protected RecyclerView mRecyclerView;
@@ -33,7 +32,7 @@ public class Choisircreneau extends AppCompatActivity {
     private void initDataset() {
         mDataset = new String[11];
         for (int i = 8; i < 19; i++) {
-            mDataset[i-8] =  String.format("Test",i,0);
+            mDataset[i-8] =  String.format("%02d:%02d",i,0);
         }
     }
 
@@ -44,7 +43,6 @@ public class Choisircreneau extends AppCompatActivity {
         setContentView(R.layout.activity_choisircreneau);
         buttonRetour = findViewById(R.id.buttonRetour4);
         calendar = (CalendarView) findViewById(R.id.calendarView);
-        date = findViewById(R.id.textView11);
         prendrerdv = findViewById(R.id.buttonRetour5);
 
         initDataset();
@@ -65,9 +63,6 @@ public class Choisircreneau extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
-
-                date.setText(selectedDate);
-                date.setVisibility(View.VISIBLE);
             }
         });
 

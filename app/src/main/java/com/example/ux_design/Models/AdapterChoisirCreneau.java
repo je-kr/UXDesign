@@ -56,6 +56,7 @@ public class AdapterChoisirCreneau extends RecyclerView.Adapter<AdapterMedecinAg
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(AdapterMedecinAgenda.ViewHolder viewHolder, final int position) {
+        viewHolder.getTextView().setText(localDataSet[position]);
 
 
     }
