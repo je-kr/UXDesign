@@ -72,10 +72,10 @@ public class AgendaMedecin extends AppCompatActivity {
 
         initDataset();
 
-        calendar = (CalendarView) findViewById(R.id.calendarViewAgendaPatient);
+        calendar = (CalendarView) findViewById(R.id.calendarAgendaMedecin);
 
         mRecyclerView = findViewById(R.id.agendaMedecin);
-        textViewDate = findViewById(R.id.textViewDateAgendaPatient);
+        textViewDate = findViewById(R.id.textViewDateAgendaMedecin);
 
         mLayoutManager = new LinearLayoutManager(getApplication());
 
@@ -108,14 +108,14 @@ public class AgendaMedecin extends AppCompatActivity {
 
                 String datetime = (String) viewHolder.getTextView().getText() + ' ' + textViewDate.getText();
 
-                mRendezvousDAO.findByDateEmail(datetime,"dr.smith@gmail.com")
+                mRendezvousDAO.findListByDateEmailMedecin(datetime,"dr.smith@gmail.com")
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
                                 rdvFound -> {
-
-                                    viewHolder.getBoutonCreerCreneau().setBackgroundColor(0xFF6200EE);
-                                    viewHolder.getBoutonCreerCreneau().setText("Supprimer créneau");
+                                    viewHolder.getBoutonCreerCreneau().setEnabled(false);
+                                    viewHolder.getBoutonCreerCreneau().setText("M "+rdvFound.getNom());
+                                    viewHolder.getBoutonCreerCreneau().setBackgroundColor(0x42424242);
 
                                 },
                                 throwable -> {
@@ -142,11 +142,6 @@ public class AgendaMedecin extends AppCompatActivity {
         };
 
         mRecyclerView.setAdapter(mAdapter);
-
-
-
-
-
 
     }
 

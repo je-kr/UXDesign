@@ -3,7 +3,7 @@ package com.example.ux_design.Models;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 
-public class tupleRDVPatient {
+public class tupleRDVMedecin {
     @NonNull
     @ColumnInfo(name = "nom")
     public String nom;

@@ -14,9 +14,10 @@
         android:text="HH:MM"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.461"></TextView>
+        app:layout_constraintTop_toTopOf="parent"></TextView>
 
     <TextView
         android:id="@+id/textViewAdresseMedecinAgendaPatient"
@@ -24,16 +25,22 @@
         android:layout_height="wrap_content"
         android:text="Adresse TEST Medecin"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.935"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.838"
-        tools:layout_editor_absoluteX="231dp" />
+        app:layout_constraintVertical_bias="0.967" />
 
     <TextView
         android:id="@+id/textViewNomMedecinAgendaPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dr TEST"
-        tools:layout_editor_absoluteX="231dp"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textViewAdresseMedecinAgendaPatient"
+        app:layout_constraintEnd_toEndOf="@+id/textViewAdresseMedecinAgendaPatient"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textViewAdresseMedecinAgendaPatient"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.909" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

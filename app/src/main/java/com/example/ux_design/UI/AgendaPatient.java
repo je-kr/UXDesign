@@ -4,7 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.TextView;
 
 import com.example.ux_design.Models.AdapterMedecinAgenda;
 import com.example.ux_design.Models.AdapterPatientAgenda;
@@ -29,11 +34,17 @@ public class AgendaPatient extends AppCompatActivity {
     protected RecyclerView.LayoutManager mLayoutManager;
     protected List<tupleRDVPatient> mDataset;
 
+    CalendarView calendar;
+    TextView textViewDate;
+
     PatientDAO mPatientDAO;
     MedecinDAO mMedecinDAO;
     RendezvousDAO mRendezvousDAO;
 
     AppDatabase db;
+    String selectedDate;
+
+    Button buttonRetour;
 
     private static final int DATASET_COUNT = 60;
 
@@ -71,7 +82,37 @@ public class AgendaPatient extends AppCompatActivity {
         mPatientDAO = db.patientDao();
         mRendezvousDAO = db.rendezvousDao();
 
-        initDataset("08/12/2021","francoise.dupont@gmail.com");
+        calendar = (CalendarView) findViewById(R.id.calendarViewAgendaPatient);
+        textViewDate = findViewById(R.id.textViewDateAgendaPatient);
+        buttonRetour = findViewById(R.id.buttonRetourAgendaPatient);
+
+
+        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
+                selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
+                textViewDate.setText(selectedDate);
+                calendar.setVisibility(View.INVISIBLE);
+                initDataset(selectedDate,"francoise.dupont@gmail.com");
+            }
+        });
+
+        textViewDate.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                calendar.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        buttonRetour.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(AgendaPatient.this, MenuPatient.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
 

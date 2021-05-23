@@ -14,13 +14,15 @@
         </activity>
         <activity android:name=".UI.AgendaMedecin">
 
-        </activity>
-        <activity android:name=".UI.AgendaPatient">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".UI.AgendaPatient">
+
         </activity>
         <activity android:name=".UI.MenuPatient" />
         <activity android:name=".UI.MenuMedecin" />

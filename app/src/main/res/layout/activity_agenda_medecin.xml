@@ -15,22 +15,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDateAgendaMedecin"
         app:layout_constraintVertical_bias="0.678" />
 
     <CalendarView
-        android:id="@+id/calendarViewAgendaPatient"
+        android:id="@+id/calendarAgendaMedecin"
         android:layout_width="289dp"
         android:layout_height="273dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDateAgendaPatient"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDateAgendaMedecin"
         app:layout_constraintVertical_bias="0.078" />
 
     <TextView
-        android:id="@+id/textViewDateAgendaPatient"
+        android:id="@+id/textViewDateAgendaMedecin"
         android:layout_width="161dp"
         android:layout_height="42dp"
         android:layout_marginTop="80dp"
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:text="Agenda Medecin"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/textViewDateAgendaPatient"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDateAgendaMedecin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

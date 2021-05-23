@@ -27,6 +27,14 @@ public class AdapterPatientAgenda extends RecyclerView.Adapter<AdapterPatientAge
         private final TextView textViewHeureRDV;
 
 
+
+        public ViewHolder(View view) {
+            super(view);
+            textViewNomMedecin = (TextView) view.findViewById(R.id.textViewNomMedecinAgendaPatient);
+            textViewAdresseMedecin = (TextView) view.findViewById(R.id.textViewAdresseMedecinAgendaPatient);
+            textViewHeureRDV = (TextView) view.findViewById(R.id.textViewHeureAgendaPatient);
+        }
+
         public TextView getTextViewNomMedecin() {
             return textViewNomMedecin;
         }
@@ -37,13 +45,6 @@ public class AdapterPatientAgenda extends RecyclerView.Adapter<AdapterPatientAge
 
         public TextView getTextViewHeureRDV() {
             return textViewHeureRDV;
-        }
-
-        public ViewHolder(View view) {
-            super(view);
-            textViewNomMedecin = (TextView) view.findViewById(R.id.textViewNomMedecinAgendaPatient);
-            textViewAdresseMedecin = (TextView) view.findViewById(R.id.textViewAdresseMedecin);
-            textViewHeureRDV = (TextView) view.findViewById(R.id.textViewHeureAgendaPatient);
         }
 
 
@@ -65,7 +66,7 @@ public class AdapterPatientAgenda extends RecyclerView.Adapter<AdapterPatientAge
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item, viewGroup, false);
+                .inflate(R.layout.recycler_agenda_patient, viewGroup, false);
 
         return new ViewHolder(view);
     }
