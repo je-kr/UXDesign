@@ -15,17 +15,19 @@
         <activity android:name=".UI.AgendaMedecin">
 
         </activity>
-        <activity android:name=".UI.AgendaPatient" />
+        <activity android:name=".UI.AgendaPatient">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".UI.MenuPatient" />
         <activity android:name=".UI.MenuMedecin" />
         <activity android:name=".UI.ExempleBDD" />
         <activity android:name=".UI.MainActivity" />
         <activity android:name=".UI.PrisedeRDV">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
         </activity>
     </application>
 

@@ -25,7 +25,7 @@ public class AdapterMedecinAgenda extends RecyclerView.Adapter<AdapterMedecinAge
 
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView);
+            textView = (TextView) view.findViewById(R.id.textViewHeureAgendaPatient);
             boutonCreerCreneau = view.findViewById(R.id.buttonCreerCreneau);
         }
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="50dp">
 
     <TextView
         android:id="@+id/textViewHeureAgendaPatient"
@@ -14,21 +14,26 @@
         android:text="HH:MM"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonCreerCreneau"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.461"></TextView>
 
-    <Button
-        android:id="@+id/buttonCreerCreneau"
-        android:layout_width="168dp"
-        android:layout_height="41dp"
-        android:gravity="center_horizontal|center_vertical"
-        android:text="Créer créneau"
-        app:backgroundTint="@color/teal_700"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.87"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/textViewAdresseMedecinAgendaPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adresse TEST Medecin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.838"
+        tools:layout_editor_absoluteX="231dp" />
+
+    <TextView
+        android:id="@+id/textViewNomMedecinAgendaPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dr TEST"
+        tools:layout_editor_absoluteX="231dp"
+        tools:layout_editor_absoluteY="7dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

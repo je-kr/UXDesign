@@ -7,7 +7,7 @@
     tools:context=".UI.AgendaMedecin">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/agendaPatient"
+        android:id="@+id/agendaMedecin"
         android:layout_width="396dp"
         android:layout_height="509dp"
         android:foregroundGravity="center"

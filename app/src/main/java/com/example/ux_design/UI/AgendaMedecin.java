@@ -74,7 +74,7 @@ public class AgendaMedecin extends AppCompatActivity {
 
         calendar = (CalendarView) findViewById(R.id.calendarViewAgendaPatient);
 
-        mRecyclerView = findViewById(R.id.agendaPatient);
+        mRecyclerView = findViewById(R.id.agendaMedecin);
         textViewDate = findViewById(R.id.textViewDateAgendaPatient);
 
         mLayoutManager = new LinearLayoutManager(getApplication());
