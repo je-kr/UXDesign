@@ -12,26 +12,27 @@
         android:id="@+id/buttonRetour3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="624dp"
         android:text="Retour"
         android:textColorHighlight="#009688"
         android:visibility="visible"
         app:backgroundTint="@color/teal_700"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.953" />
 
     <Button
         android:id="@+id/buttonrechercher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="192dp"
         android:text="Rechercher"
         android:textColorHighlight="#009688"
         android:visibility="visible"
         app:backgroundTint="@color/teal_700"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.183"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,13 +40,13 @@
         android:id="@+id/prrdv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="44dp"
         android:text="Prendre un rendez-vous"
         android:textColor="#000000"
         android:textSize="30sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,9 +54,9 @@
         android:id="@+id/PostalAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="108dp"
         android:ems="10"
         android:hint="Code postal"
         android:inputType="textPostalAddress"
@@ -69,11 +70,28 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="164dp"
         android:text="TextView"
         android:textColor="#F40707"
         android:textColorHighlight="#FFFFFF"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:layout_width="387dp"
+        android:layout_height="312dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonRetour3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonrechercher"
+        app:layout_constraintVertical_bias="0.060000002">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerPriseRDV"
+            android:layout_width="match_parent"
+            android:layout_height="367dp"
+            android:layout_marginTop="24dp" />
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

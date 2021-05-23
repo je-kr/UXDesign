@@ -1,4 +1,4 @@
-package com.example.ux_design;
+package com.example.ux_design.UI;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.ux_design.UI.Choisircreneau;
-import com.example.ux_design.UI.MenuPatient;
+import com.example.ux_design.R;
 
 public class Confirmation extends AppCompatActivity {
         TextView daterecup;

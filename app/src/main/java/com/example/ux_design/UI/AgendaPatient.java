@@ -34,7 +34,7 @@ public class AgendaPatient extends AppCompatActivity {
         initDataset();
 
 
-        mRecyclerView = findViewById(R.id.agenda1);
+        mRecyclerView = findViewById(R.id.agendaPatient);
         mLayoutManager = new LinearLayoutManager(getApplication());
 
         mRecyclerView.setLayoutManager(mLayoutManager);

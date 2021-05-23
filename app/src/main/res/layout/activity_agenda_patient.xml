@@ -4,28 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.AgendaPatient">
-
-    <EditText
-        android:id="@+id/editTextDateAgendaMedecin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="date"
-        tools:layout_editor_absoluteX="96dp"
-        tools:layout_editor_absoluteY="84dp" />
+    tools:context=".UI.AgendaMedecin">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="411dp"
-        android:layout_height="505dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="226dp">
+        android:id="@+id/agendaPatient"
+        android:layout_width="396dp"
+        android:layout_height="509dp"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.678" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-    </androidx.recyclerview.widget.RecyclerView>
+    <CalendarView
+        android:id="@+id/calendarViewAgendaPatient"
+        android:layout_width="289dp"
+        android:layout_height="273dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDateAgendaPatient"
+        app:layout_constraintVertical_bias="0.078" />
+
+    <TextView
+        android:id="@+id/textViewDateAgendaPatient"
+        android:layout_width="161dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="80dp"
+        android:text="DD/MM/YYYY"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Agenda Medecin"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewDateAgendaPatient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

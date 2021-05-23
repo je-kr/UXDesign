@@ -22,6 +22,9 @@ public interface RendezvousDAO {
     @Query("SELECT * FROM Rendezvous WHERE daterdv LIKE :date AND emailMedecin LIKE :email")
     Single<Rendezvous> findByDateEmail(String date,String email);
 
+    @Query("SELECT * FROM Rendezvous WHERE daterdv LIKE :date AND emailMedecin LIKE :email")
+    Single<List<Rendezvous>> findListByDateEmail(String date,String email);
+
     @Insert
     void insertAll(Rendezvous... rendezvous);
 

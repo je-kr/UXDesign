@@ -10,28 +10,38 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ux_design.R;
 
-public class AdapterMedecinAgenda extends RecyclerView.Adapter<AdapterMedecinAgenda.ViewHolder> {
+import java.util.List;
 
-    private String[] localDataSet;
+public class AdapterPrendreRDV extends RecyclerView.Adapter<AdapterPrendreRDV.ViewHolder> {
+
+    private List<Medecin> localDataSet;
 
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        private final TextView textViewNomMedecin;
+        private final TextView textViewAdresseMedecin;
         private final Button boutonCreerCreneau;
 
 
+        public TextView getTextViewNomMedecin() {
+            return textViewNomMedecin;
+        }
+
+        public TextView getTextViewAdresseMedecin() {
+            return textViewAdresseMedecin;
+        }
+
         public ViewHolder(View view) {
             super(view);
-            textView = (TextView) view.findViewById(R.id.textView);
+            textViewNomMedecin = (TextView) view.findViewById(R.id.textViewNomMedecin);
+            textViewAdresseMedecin = (TextView) view.findViewById(R.id.textViewAdresseMedecin);
             boutonCreerCreneau = view.findViewById(R.id.buttonCreerCreneau);
         }
 
-        public TextView getTextView() {
-            return textView;
-        }
+
 
         public Button getBoutonCreerCreneau() {
             return boutonCreerCreneau;
@@ -45,7 +55,7 @@ public class AdapterMedecinAgenda extends RecyclerView.Adapter<AdapterMedecinAge
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public AdapterMedecinAgenda(String[] dataSet) {
+    public AdapterPrendreRDV(List<Medecin>  dataSet) {
         localDataSet = dataSet;
     }
 
@@ -54,7 +64,7 @@ public class AdapterMedecinAgenda extends RecyclerView.Adapter<AdapterMedecinAge
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.text_row_item, viewGroup, false);
+                .inflate(R.layout.adapter_prendre_rdv, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -65,12 +75,13 @@ public class AdapterMedecinAgenda extends RecyclerView.Adapter<AdapterMedecinAge
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        
+        viewHolder.getTextViewNomMedecin().setText("Dr."+localDataSet.get(position).getNom());
+        viewHolder.getTextViewAdresseMedecin().setText(localDataSet.get(position).getAdresse());
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return localDataSet.length;
+        return localDataSet.size();
     }
 }

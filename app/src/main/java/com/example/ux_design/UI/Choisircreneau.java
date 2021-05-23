@@ -11,13 +11,8 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 
-import com.example.ux_design.Confirmation;
 import com.example.ux_design.Models.AdapterChoisirCreneau;
-import com.example.ux_design.Models.AdapterMedecinAgenda;
 import com.example.ux_design.R;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Choisircreneau extends AppCompatActivity {
      Button buttonRetour, prendrerdv;

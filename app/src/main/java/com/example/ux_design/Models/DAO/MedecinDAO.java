@@ -21,6 +21,9 @@ public interface  MedecinDAO {
     @Query("SELECT * FROM Medecin WHERE email LIKE :email")
     Single<Medecin> findByEmail(String email);
 
+    @Query("SELECT * FROM Medecin WHERE adresse LIKE '%' || :cp || '%'")
+    Single<List<Medecin>> findByCP(String cp);
+
 //    @Query("SELECT * FROM Pays")
 //    LiveData<List<String>> getStringList();
 
