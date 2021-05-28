@@ -84,6 +84,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                         medecinFound -> {
                                             if (medecinFound.getMotpasse().equals(motpasse)){
                                                 Intent intent = new Intent(MainActivity.this, MenuMedecin.class);
+                                                intent.putExtra("email",email);
                                                 startActivity(intent);}
                                             else {
                                                 motincorrect.setText("Identifiants incorrects");
@@ -105,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                         patientFound -> {
                                             if (patientFound.getMotpasse().equals(motpasse)){
                                                 Intent intent = new Intent(MainActivity.this, MenuPatient.class);
+                                                intent.putExtra("email",email);
                                                 startActivity(intent);}
                                             else {
                                                 motincorrect.setText("Identifiants incorrects");

@@ -23,16 +23,19 @@ public class MenuPatient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_patient);
-
-        Intent intent = new Intent(this, AgendaPatient.class);
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
 
         agendaButton = findViewById(R.id.buttonAgendaPatient);
         buttonRetour = findViewById(R.id.buttonRetour2);
         rdv =  findViewById(R.id.prendrerdv);
+
         agendaButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(MenuPatient.this, AgendaPatient.class);
+                intent.putExtra("email",email);
                 startActivity(intent);
             }
         });
