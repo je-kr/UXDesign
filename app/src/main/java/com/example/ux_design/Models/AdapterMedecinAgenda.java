@@ -36,7 +36,6 @@ public class AdapterMedecinAgenda extends RecyclerView.Adapter<AdapterMedecinAge
         public Button getBoutonCreerCreneau() {
             return boutonCreerCreneau;
         }
-
     }
 
     /**

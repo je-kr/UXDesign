@@ -5,6 +5,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 
 import com.example.ux_design.Models.Rendezvous;
@@ -32,8 +33,14 @@ public interface RendezvousDAO {
     @Query("SELECT m.nom,m.adresse,r.daterdv FROM Rendezvous r JOIN Medecin m ON r.emailMedecin=m.email WHERE daterdv LIKE '%' || :date || '%' AND emailPatient LIKE :email  ")
     Single<List<tupleRDVPatient>> findListByDateEmailPatient(String date, String email);
 
+    @Query("SELECT * FROM Rendezvous WHERE daterdv LIKE '%' || :date || '%' AND emailMedecin LIKE :email AND emailPatient IS NULL")
+    Single<List<Rendezvous>> findListFreeRDV(String date,String email);
+
     @Insert
     void insertAll(Rendezvous... rendezvous);
+
+    @Update
+    public void updateRDV(Rendezvous rdv);
 
     @Delete
     void delete(Rendezvous rendezvous);

@@ -49,6 +49,7 @@ public class AgendaPatient extends AppCompatActivity {
     private static final int DATASET_COUNT = 60;
 
     private void initDataset(String date,String email) {
+
         mRendezvousDAO.findListByDateEmailPatient(date,email)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -69,10 +70,12 @@ public class AgendaPatient extends AppCompatActivity {
                         },
                         throwable -> {
                         });
+
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agenda_patient);
 
@@ -86,7 +89,6 @@ public class AgendaPatient extends AppCompatActivity {
         textViewDate = findViewById(R.id.textViewDateAgendaPatient);
         buttonRetour = findViewById(R.id.buttonRetourAgendaPatient);
 
-
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -96,11 +98,11 @@ public class AgendaPatient extends AppCompatActivity {
                 initDataset(selectedDate,"francoise.dupont@gmail.com");
             }
         });
-
         textViewDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
                 calendar.setVisibility(View.VISIBLE);
+
 
             }
         });
@@ -111,10 +113,6 @@ public class AgendaPatient extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
 
 
 

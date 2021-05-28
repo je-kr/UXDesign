@@ -20,6 +20,7 @@ public class AdapterPatientAgenda extends RecyclerView.Adapter<AdapterPatientAge
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         private final TextView textViewNomMedecin;

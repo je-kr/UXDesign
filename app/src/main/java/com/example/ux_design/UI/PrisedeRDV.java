@@ -53,7 +53,7 @@ public class PrisedeRDV extends AppCompatActivity {
 
                             mRecyclerView.setLayoutManager(mLayoutManager);
 
-                            mAdapter = new AdapterPrendreRDV(mDataset);
+                            mAdapter = new AdapterPrendreRDV(mDataset,"francoise.dupont@gmail.com");
 
                             mRecyclerView.setAdapter(mAdapter);
 
@@ -65,6 +65,7 @@ public class PrisedeRDV extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prisede_r_d_v);
 
@@ -76,10 +77,6 @@ public class PrisedeRDV extends AppCompatActivity {
         fieldcodepost = findViewById(R.id.PostalAddress);
         buttonRetour3 =findViewById(R.id.buttonRetour3);
         format = findViewById(R.id.textView12);
-
-
-
-
 
         buttonrechercher.setOnClickListener(new View.OnClickListener() {
             @Override
