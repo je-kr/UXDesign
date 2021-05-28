@@ -52,6 +52,7 @@ public class MenuPatient extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuPatient.this, PrisedeRDV.class);
+                intent.putExtra("email",email);
                 Log.d("MenuPatient", "startActivity()");
                 startActivity(intent);
             }

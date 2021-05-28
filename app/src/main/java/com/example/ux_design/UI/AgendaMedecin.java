@@ -83,7 +83,8 @@ public class AgendaMedecin extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         Intent intent = getIntent();
-        String email = intent.getStringExtra("email");
+        //String email = intent.getStringExtra("email");
+        String email = "dr.smith@gmail.com";
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override

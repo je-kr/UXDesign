@@ -35,6 +35,8 @@ public class PrisedeRDV extends AppCompatActivity {
     protected RecyclerView.LayoutManager mLayoutManager;
     protected List<Medecin> mDataset;
 
+    String emailPatient;
+
     MedecinDAO mMedecinDAO;
     AppDatabase db;
 
@@ -53,7 +55,7 @@ public class PrisedeRDV extends AppCompatActivity {
 
                             mRecyclerView.setLayoutManager(mLayoutManager);
 
-                            mAdapter = new AdapterPrendreRDV(mDataset,"francoise.dupont@gmail.com");
+                            mAdapter = new AdapterPrendreRDV(mDataset,emailPatient);
 
                             mRecyclerView.setAdapter(mAdapter);
 
@@ -77,6 +79,9 @@ public class PrisedeRDV extends AppCompatActivity {
         fieldcodepost = findViewById(R.id.PostalAddress);
         buttonRetour3 =findViewById(R.id.buttonRetour3);
         format = findViewById(R.id.textView12);
+
+        Intent intent = getIntent();
+        emailPatient = intent.getStringExtra("email");
 
         buttonrechercher.setOnClickListener(new View.OnClickListener() {
             @Override
