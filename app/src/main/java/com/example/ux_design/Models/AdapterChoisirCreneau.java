@@ -3,14 +3,13 @@ package com.example.ux_design.Models;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ux_design.R;
 
-public class AdapterChoisirCreneau extends RecyclerView.Adapter<AdapterMedecinAgenda.ViewHolder> {
+public class AdapterChoisirCreneau extends RecyclerView.Adapter<AdapterChoisirCreneau.ViewHolder> {
 
     private String[] localDataSet;
 
@@ -45,17 +44,17 @@ public class AdapterChoisirCreneau extends RecyclerView.Adapter<AdapterMedecinAg
 
     // Create new views (invoked by the layout manager)
     @Override
-    public AdapterMedecinAgenda.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public AdapterChoisirCreneau.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.choisir_creneau_recycler, viewGroup, false);
 
-        return new AdapterMedecinAgenda.ViewHolder(view);
+        return new AdapterChoisirCreneau.ViewHolder(view);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(AdapterMedecinAgenda.ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(AdapterChoisirCreneau.ViewHolder viewHolder, final int position) {
         viewHolder.getTextView().setText(localDataSet[position]);
 
 
