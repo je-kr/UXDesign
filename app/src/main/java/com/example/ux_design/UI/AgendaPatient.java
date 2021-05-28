@@ -85,7 +85,8 @@ public class AgendaPatient extends AppCompatActivity {
         calendar = (CalendarView) findViewById(R.id.calendarViewAgendaPatient);
         textViewDate = findViewById(R.id.textViewDateAgendaPatient);
         buttonRetour = findViewById(R.id.buttonRetourAgendaPatient);
-
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
 
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -93,7 +94,7 @@ public class AgendaPatient extends AppCompatActivity {
                 selectedDate = dayOfMonth + "/" + (month + 1) + "/" + year;
                 textViewDate.setText(selectedDate);
                 calendar.setVisibility(View.INVISIBLE);
-                initDataset(selectedDate,"francoise.dupont@gmail.com");
+                initDataset(selectedDate,email);
             }
         });
 

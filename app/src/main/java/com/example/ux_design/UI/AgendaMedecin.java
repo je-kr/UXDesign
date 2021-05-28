@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -81,6 +82,9 @@ public class AgendaMedecin extends AppCompatActivity {
 
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
+
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
@@ -108,7 +112,7 @@ public class AgendaMedecin extends AppCompatActivity {
 
                 String datetime = (String) viewHolder.getTextView().getText() + ' ' + textViewDate.getText();
 
-                mRendezvousDAO.findListByDateEmailMedecin(datetime,"dr.smith@gmail.com")
+                mRendezvousDAO.findListByDateEmailMedecin(datetime,email)
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(
@@ -127,10 +131,10 @@ public class AgendaMedecin extends AppCompatActivity {
                         if(button.getText().equals("Créer créneau")) {
                             button.setBackgroundColor(0xFF6200EE);
                             button.setText("Supprimer créneau");
-                            créerCréneau(datetime,"dr.smith@gmail.com");
+                            créerCréneau(datetime,email);
                         }
                         else{
-                            supprimerCréneau(datetime,"dr.smith@gmail.com");
+                            supprimerCréneau(datetime,email);
                             button.setBackgroundColor(0xFF018786);
                             button.setText("Créer créneau");
                         }

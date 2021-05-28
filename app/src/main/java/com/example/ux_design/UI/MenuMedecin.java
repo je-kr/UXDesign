@@ -25,6 +25,9 @@ public class MenuMedecin extends AppCompatActivity {
         buttonConsulterDossier = findViewById(R.id.buttonConsulterDossier);
         buttonAgenda = findViewById(R.id.buttonAgenda);
 
+        Intent intent = getIntent();
+        String email = intent.getStringExtra("email");
+
         buttonRetour.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuMedecin.this, MainActivity.class);
@@ -35,6 +38,7 @@ public class MenuMedecin extends AppCompatActivity {
         buttonAgenda.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(MenuMedecin.this, AgendaMedecin.class);
+                intent.putExtra("email",email);
                 startActivity(intent);
             }
         });
