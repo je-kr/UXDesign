@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -49,6 +50,7 @@ public class AgendaPatient extends AppCompatActivity {
     private static final int DATASET_COUNT = 60;
 
     private void initDataset(String date,String email) {
+        Log.d("email",email);
         mRendezvousDAO.findListByDateEmailPatient(date,email)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -65,9 +67,12 @@ public class AgendaPatient extends AppCompatActivity {
                             mAdapter = new AdapterPatientAgenda(mDataset);
 
                             mRecyclerView.setAdapter(mAdapter);
+                            Log.d("Subscribe",String.valueOf(listeRdvFound.size()));
+
 
                         },
                         throwable -> {
+                            Log.d("Subscribe","Throwable");
                         });
     }
 

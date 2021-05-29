@@ -19,6 +19,7 @@ public class MenuPatient extends AppCompatActivity {
     Button buttonRetour;
     Button rdv;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

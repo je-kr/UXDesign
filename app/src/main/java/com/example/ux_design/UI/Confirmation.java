@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -84,12 +85,15 @@ public class Confirmation extends AppCompatActivity {
                                     rdvFound.setEmailPatient(emailPatient);
                                     db.databaseWriteExecutor.execute(() -> {
                                         mRendezvousDAO.updateRDV(rdvFound);
+                                        Log.d("databaseWriteExecutor","updateRDV");
                                     });
                                     Intent intent = new Intent(Confirmation.this, MenuPatient.class);
+                                    intent.putExtra("email",emailPatient);
                                     startActivity(intent);
 
                                 },
                                 throwable -> {
+                                    Log.d("SubscribeConfirm","Throwable");
                                 });
 
 
@@ -100,6 +104,7 @@ public class Confirmation extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Confirmation.this, MenuPatient.class);
+                intent.putExtra("email",emailPatient);
                 startActivity(intent);
             }
         });
