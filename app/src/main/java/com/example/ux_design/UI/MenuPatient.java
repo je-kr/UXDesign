@@ -28,7 +28,7 @@ public class MenuPatient extends AppCompatActivity {
         String email = intent.getStringExtra("email");
 
         agendaButton = findViewById(R.id.buttonAgendaPatient);
-        buttonRetour = findViewById(R.id.buttonRetour2);
+
         rdv =  findViewById(R.id.prendrerdv);
 
         agendaButton.setOnClickListener(new View.OnClickListener() {
@@ -41,13 +41,6 @@ public class MenuPatient extends AppCompatActivity {
             }
         });
 
-        buttonRetour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MenuPatient.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
 
         rdv.setOnClickListener(new View.OnClickListener() {
             @Override

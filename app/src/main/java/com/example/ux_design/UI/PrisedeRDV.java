@@ -77,7 +77,6 @@ public class PrisedeRDV extends AppCompatActivity {
 
         buttonrechercher = findViewById(R.id.buttonrechercher);
         fieldcodepost = findViewById(R.id.PostalAddress);
-        buttonRetour3 =findViewById(R.id.buttonRetour3);
         format = findViewById(R.id.textView12);
 
         Intent intent = getIntent();
@@ -98,13 +97,6 @@ public class PrisedeRDV extends AppCompatActivity {
             }
         });
 
-        buttonRetour3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(PrisedeRDV.this, MenuPatient.class);
-                startActivity(intent);
-            }
-        });
 
     }
 }

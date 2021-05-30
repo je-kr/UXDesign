@@ -89,7 +89,6 @@ public class AgendaPatient extends AppCompatActivity {
 
         calendar = (CalendarView) findViewById(R.id.calendarViewAgendaPatient);
         textViewDate = findViewById(R.id.textViewDateAgendaPatient);
-        buttonRetour = findViewById(R.id.buttonRetourAgendaPatient);
         Intent intent = getIntent();
         String email = intent.getStringExtra("email");
 
@@ -108,13 +107,6 @@ public class AgendaPatient extends AppCompatActivity {
 
                 calendar.setVisibility(View.VISIBLE);
 
-            }
-        });
-
-        buttonRetour.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(AgendaPatient.this, MenuPatient.class);
-                startActivity(intent);
             }
         });
 
